@@ -267,19 +267,19 @@ Commands["attack"] = function(args, rawArgs)
 
     local DISTANCE      = 5
     local MOVE_INTERVAL = 0.05
-    local CLICK_INTERVAL = 0.7  -- each bot clicks every (totalBots * CLICK_INTERVAL) seconds
+    local CLICK_INTERVAL = 0.6  -- each bot clicks every (totalBots * CLICK_INTERVAL) seconds
 
-    -- World-space fixed offsets — not relative to target's facing direction
-    local slots = {
-        Vector3.new( 0,        0, -DISTANCE), -- 1: north
-        Vector3.new( DISTANCE, 0,  0),        -- 2: east
-        Vector3.new( 0,        0,  DISTANCE), -- 3: south
-        Vector3.new(-DISTANCE, 0,  0),        -- 4: west
-    }
+    local totalBots = #CONFIG.BOTS
 
-    local slotIndex      = ((BOT_INDEX - 1) % #slots) + 1
-    local worldOffset    = slots[slotIndex]
-    local totalBots      = #CONFIG.BOTS
+    -- Dynamically space bots evenly around a circle based on total bot count
+    -- 2 bots = opposite sides, 3 = triangle, 4 = square, 5 = pentagon, etc.
+    local slotIndex  = ((BOT_INDEX - 1) % totalBots) + 1
+    local angle      = (2 * math.pi / totalBots) * (slotIndex - 1)  -- evenly spaced radians
+    local worldOffset = Vector3.new(
+        math.sin(angle) * DISTANCE,   -- X
+        0,                            -- Y (stay on same level)
+        -math.cos(angle) * DISTANCE   -- Z (negative cos so index 1 starts at north)
+    )
 
     print(string.format("[Bot %s] .attack started — targeting '%s' slot %d", BOT_INDEX, targetName, slotIndex))
 
