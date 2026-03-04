@@ -265,7 +265,7 @@ Commands["attack"] = function(args, rawArgs)
     task.wait(0.05)
     attackLoops[BOT_INDEX] = true
 
-    local DISTANCE      = 7
+    local DISTANCE      = 15
     local MOVE_INTERVAL = 0.05
     local CLICK_INTERVAL = 0.7  -- each bot clicks every (totalBots * CLICK_INTERVAL) seconds
 
