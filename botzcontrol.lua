@@ -267,7 +267,7 @@ Commands["attack"] = function(args, rawArgs)
 
     local DISTANCE      = 7
     local MOVE_INTERVAL = 0.05
-    local CLICK_INTERVAL = 0.6  -- each bot clicks every (totalBots * CLICK_INTERVAL) seconds
+    local CLICK_INTERVAL = 0.7  -- each bot clicks every (totalBots * CLICK_INTERVAL) seconds
 
     local totalBots = #CONFIG.BOTS
 
