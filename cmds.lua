@@ -1,4 +1,5 @@
 return [[
+.
 say [message] [index]
 bring [index]
 re [index]
