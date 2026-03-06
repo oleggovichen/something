@@ -1,4 +1,4 @@
-chat [message] [index]
+say [message] [index]
 bring [index]
 re [index]
 rj [index]
