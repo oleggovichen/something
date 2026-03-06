@@ -1,3 +1,4 @@
+return [[
 say [message] [index]
 bring [index]
 re [index]
@@ -14,3 +15,4 @@ fling [player] [index]
 unfling [player] [index]
 attacktool
 use2 -- only on saitama
+]]
