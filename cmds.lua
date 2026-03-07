@@ -16,4 +16,6 @@ fling [player] [index]
 unfling [player] [index]
 attacktool
 use2 -- only on saitama
+.optimize enable/disable [index]
+.credit
 ]]
